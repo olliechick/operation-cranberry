@@ -1,0 +1,11 @@
+# Operation Cranberry
+
+## About
+This was a command-line text adventure game based on the premise of a zombie invasion. 
+I created it for an NCEA Level 2 assigment in 2014.
+
+## Pre-requsisites
+Install Python 2.
+
+## Running the program
+Run the command `python operation_cranberry.py`
