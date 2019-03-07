@@ -17,7 +17,11 @@ knifeCount = 0  # sets variable knifeCount to 0 - the user doesn't have any kniv
 
 # FUNCTIONS
 def cls():
-    os.system("cls")  # clears the screen
+    if sys.stdout.isatty():  # check if running in a terminal
+        if os.name == 'nt':  # Windows OS:
+            os.system("cls")  # clears the screen
+        else:  # Linux/macOS
+            os.system('clear')
 
 
 def zombieFight():
@@ -25,7 +29,7 @@ def zombieFight():
     damage = (random.choice(damageList))  # damage is now a random number from the list damageList
     if zombieHealth <= 0:  # if the zombie's health is 0 or less, ie the zombie is dead:
         print("Congratulations! You have successfully killed %s.\n\nYOUR HEALTH: %d" % (
-        zombieName, userHealth))  # shows this
+            zombieName, userHealth))  # shows this
     else:
         userHealth = userHealth - damage  # takes damage off userHealth
         if userHealth <= 0:  # if the user's health is 0 or less, ie the user is dead:
@@ -56,33 +60,33 @@ def zombieFight():
                 cls()
                 print(
                     "Uh oh! %s managed to kill you. Ah well, at least you managed to make it to room %s. The console will close in 5 seconds." % (
-                    zombieName, room))  # shows this
+                        zombieName, room))  # shows this
                 time.sleep(1)  # waits a second before continuing the program
                 cls()
                 print(
                     "Uh oh! %s managed to kill you. Ah well, at least you managed to make it to room %s. The console will close in 4 seconds." % (
-                    zombieName, room))  # shows this
+                        zombieName, room))  # shows this
                 time.sleep(1)  # waits a second before continuing the program
                 cls()
                 print(
                     "Uh oh! %s managed to kill you. Ah well, at least you managed to make it to room %s. The console will close in 3 seconds." % (
-                    zombieName, room))  # shows this
+                        zombieName, room))  # shows this
                 time.sleep(1)  # waits a second before continuing the program
                 cls()
                 print(
                     "Uh oh! %s managed to kill you. Ah well, at least you managed to make it to room %s. The console will close in 2 seconds." % (
-                    zombieName, room))  # shows this
+                        zombieName, room))  # shows this
                 time.sleep(1)  # waits a second before continuing the program
                 cls()
                 print(
                     "Uh oh! %s managed to kill you. Ah well, at least you managed to make it to room %s. The console will close in 1 second." % (
-                    zombieName, room))  # shows this
+                        zombieName, room))  # shows this
                 time.sleep(1)  # waits a second before continuing the program
                 cls()
                 sys.exit()  # closes the program
         else:
             print("He attacks you and inflicts %d damage.\n\nZOMBIE HEALTH: %d\n  YOUR HEALTH: %d" % (
-            damage, zombieHealth, userHealth))  # shows this
+                damage, zombieHealth, userHealth))  # shows this
 
 
 def fight():
